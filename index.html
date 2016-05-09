@@ -31,6 +31,10 @@
       TODO 6
       add a <form> here for users to search for movies by title 
       -->
+      <form id="form-search">
+        <input type=text name="query"/>
+        <input type=submit value="Search by Title"/>
+      </form>
 
     </header>
 
@@ -40,6 +44,18 @@
   <script src="js/flicklist.js"></script>
 
   <script>
+  
+  $("#form-search").submit(function(event){
+    // Cancel default behavior
+    event.preventDefault();
+    
+    // Figure out what the user typed
+    var searchTerm = $("#form-search input[type='text']").val();
+	
+	  // Call the searchMovies function
+	  searchMovies(searchTerm, render);
+  });
+  
     // TODO 8
     // fill in the missing pieces of the code below
 
